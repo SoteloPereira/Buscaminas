@@ -7,21 +7,37 @@
 	<title>EY | Buscaminas</title>
 </head>
 <body>
-	<div id="ContenedorPrincipal">
-		<div id="titulo">BUSCAMINAS | EY <button class="reiniciar btn">Reiniciar</button>
-	</div>
-	<div id="eleccionNivel">
-		<input type="radio" id="F" name="nivel" value="F" checked>Fácil</input>
-		<input type="radio" id="I" name="nivel" value="I">Intermedio</input>
-		<input type="radio" id="D" name="nivel" value="D">Difícil</input>
-		<button class="reiniciar jugar" onClick="elegirNivel()">Jugar</button>
-		<p id="mensaje"></p>
-	</div>
-	<div id="contenedorCeldas">
-		<div id="bloqueo"></div>
-	</div>
-	<div id="modal"><span>¡Has perdido! pisaste una mina 💣<br><br>Intentalo nuevamente</span> 
-		<button class="btn jugar" id="reiniciar">Jugar de nuevo</button>
+	<div class="contenedorPrincipal">
+		<div class="cabecera">
+			<div class="contenedorTitulo"><h1>BUSCAMINAS | EY</h1></div>
+			<div class="contenedorEleccionNivel">
+				<fieldset>
+					<legend>Dificultad</legend>
+					<input type="radio" id="F" name="nivel" value="F" checked>Fácil</input>
+					<input type="radio" id="I" name="nivel" value="I">Intermedio</input>
+					<input type="radio" id="D" name="nivel" value="D">Difícil</input>
+				</fieldset>
+			</div>
+			<div class="contenedorBotones">
+				<button class="btn" onClick="elegirNivel()">Jugar</button>
+				<button class="btn reiniciar desactivarCell" id="prueba" name="reiniciar">Reiniciar</button>
+			</div>
+		</div>
+		<div class="contenedorCeldas">
+		</div>
+		<div class="contenedorInformacion">
+			<div class="cantidadMinas"></div>
+			<div class="tiempo"></div>
+		</div>
+		<div class="modal">
+			<p class="mensaje"></p> 
+			<button class="btn reiniciar">Jugar de nuevo</button>
+		</div>
+		<div class="modalPreg">
+			<p class="mensajePreg"></p> 
+			<button class="btnP reiniciar" value="si">Si</button>
+			<button class="btnP" value="no">No</button>
+		</div>
 	</div>
 	<script src="script.js"></script>
 </body>
