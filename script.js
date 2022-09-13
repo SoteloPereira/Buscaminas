@@ -19,7 +19,6 @@ function abrir(e){
 		let columnaCelda = parseInt(cell.dataset.columna)
 		validarCelda(filaCelda,columnaCelda) //vamos a validar el contenido de la celda
 }
-
 //Funcion para validar contenido de la celda y realizar determinada instrucción dependiendo del valor de este.
 let contadorGanador=0 //se inicia contador para celdas abiertas.
 function validarCelda(filaCelda,columnaCelda){
@@ -48,17 +47,19 @@ function validarCelda(filaCelda,columnaCelda){
 			}else { //si es igual a 💣 mostrar Minas y bloquear
 					for(let ubi of ubicacionMinas){
 						let mina = contenedorCeldas.children[ubi];
+						mina.classList.remove('bandera')
 						mina.textContent = "💣"
 						mina.style.backgroundColor = "rgb(244, 79, 79)";
 						contenedorCeldas.classList.add("celdasDesactivadas")
 					}
 				}		
-			if(contadorGanador === celdasParaGanar){
+			if(contadorGanador >= celdasParaGanar){
 				modal.style.display = "block";
 				mensaje.innerHTML = "FELICITACIONES!!! HAS GANADO!!!! 🥳🥳🥳🥳🥳🥳";
 				contenedorCeldas.style.filter ="blur(10px)";
 				contenedorCeldas.classList.add("celdasDesactivadas")
 			}
+			
 		}
 	}
 }
@@ -123,8 +124,8 @@ for(let k=0; k<10; k++){
 	arrayCeldasVacias[k] = new Array(numColumnas)
 }
 
+let ubicacionMinas = []; //array vacio que guardará las coordenadas de las bombas
 //funcion donde agregamos las minas (segun nivel) al array espejo
-let ubicacionMinas = [];
 function agregarMinas (cantidadMinas){
 	let minas =0;
 	while(minas < cantidadMinas){
@@ -181,9 +182,9 @@ function elegirNivel(){
 				}else if(nivelJuego ==="I"){
 					cantidadMinas = 20;
 					celdasParaGanar = 80;		
-				}else 
+				}else if(nivelJuego = "D"){
 					cantidadMinas = 30;
-					celdasParaGanar = 70;
+					celdasParaGanar = 70;}
 					cantMinas.innerHTML += "Cantidad de minas: "+cantidadMinas;
 				agregarMinas(cantidadMinas);
 				contarMinas();
@@ -197,7 +198,7 @@ function elegirNivel(){
 			let s = 60 ;
 			function cronometro(){
 				s--;
-				let cuentaRegresiva = setTimeout(cronometro, 1000);
+				var cuentaRegresiva = setTimeout(cronometro, 1000);
 				if(s === 0){ 
 					if(m < 10){
 						if(m === 0){
