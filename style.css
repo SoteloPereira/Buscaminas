@@ -12,12 +12,11 @@ body{
 	background: linear-gradient(to right,#6CD0FF, #1b3549);
 }
 .contenedorPrincipal{
-	width: 52%;
 	min-width: 57rem;
 	max-width: 65rem;
-	margin: 3rem auto 0;
+	margin: 3rem auto;
 	background: #011329;
-	border:  .2rem solid #F7F8Fa;
+	border: .2rem solid #F7F8Fa;
 	position: relative;
 	z-index: 10;
 	box-shadow: 5rem 5rem 5rem;
